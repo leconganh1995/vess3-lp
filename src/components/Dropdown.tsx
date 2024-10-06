@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useRef, useCallback } from "react";
 import cls from "classnames";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import { useHashChange } from "@/hooks/useHashchange";
 import { Button } from "@/components/Button";
 import Image from "next/image";
+import { SOCIALS } from "@/views/Sections";
 
 interface MenuItem {
   name: string;
@@ -24,6 +26,7 @@ export const Dropdown = ({ items }: Props) => {
 
   const checkActive = useCallback(
     (href: string) => {
+      return false;
       if (scrolledSection) {
         return href.substring(2) === scrolledSection;
       }
@@ -43,15 +46,16 @@ export const Dropdown = ({ items }: Props) => {
 
   return (
     <div className="relative ml-2 md:ml-4">
-      <span className="rounded-md shadow-sm">
+      <span className="rounded-md shadow-sm relative z-10">
         <button onClick={toggle}>
           {isOpen ? (
             <svg
-              width="26"
-              height="26"
+              width="25"
+              height="25"
               viewBox="0 0 26 26"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="mt-2"
             >
               <path
                 d="M21 4L5 20"
@@ -70,11 +74,12 @@ export const Dropdown = ({ items }: Props) => {
             </svg>
           ) : (
             <svg
-              width="26"
-              height="26"
+              width="32"
+              height="32"
               viewBox="0 0 26 26"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="mt-1.5"
             >
               <path
                 d="M4.08008 7.42139H22.8481"
@@ -109,29 +114,18 @@ export const Dropdown = ({ items }: Props) => {
         )}
       >
         <div
-          className="absolute w-screen -right-4 mt-6 origin-top-right bg-black h-[calc(100vh_-_85px)] overflow-hidden"
+          className="absolute w-screen -right-4 mt-6 -top-20 origin-top-right bg-black h-[calc(100vh)] overflow-hidden"
           role="menu"
         >
-          <motion.div
-            initial={{
-              x: "-50%",
-              y: "-60%",
-            }}
-            animate={{
-              x: "-50%",
-              y: "-60%",
-              rotate: [0, 360],
-              transition: {
-                duration: 2,
-                repeat: Infinity,
-              },
-            }}
-            className="absolute top-0 left-1/2 aspect-square w-[300%] md:w-[250%] opacity-80 rounded-full blur-[60px] bg-[linear-gradient(208.03deg,_rgba(255,_103,_255,_0.5)_-1.63%,_#2944CC_80.03%)]"
-          >
-            <div className="absolute left-1/2 top-1/2 rounded-full -translate-x-1/2 -translate-y-1/2 bg-black w-1/2 h-1/2" />
-          </motion.div>
-
           <div className="relative z-10 flex flex-col items-center py-11">
+            <Image
+              className="mb-6 mt-10"
+              src="/images/logo.png"
+              width={146}
+              height={36.5}
+              alt="logo"
+            />
+
             {items.map((item, index) => (
               <div key={item.href} className="flex gap-[6px]">
                 {false && (
@@ -144,7 +138,7 @@ export const Dropdown = ({ items }: Props) => {
                 )}
                 <Link
                   className={cls(
-                    "py-4 relative text-center transition text-white hover:text-gray-400",
+                    "py-4 relative text-center transition text-white hover:text-gray-400 text-xl font-[200]",
                     {
                       "font-bold": checkActive(item.href),
                     }
@@ -157,8 +151,20 @@ export const Dropdown = ({ items }: Props) => {
               </div>
             ))}
             <Link href="/" target="_blank" passHref className="w-fit mt-4">
-              <Button className="min-w-[300px]">{`Download Wallet `}</Button>
+              <Button className="min-w-[208px]">
+                {`Connect Wallet `}{" "}
+                <img src="/images/vector.svg" className="ml-2 h-4" alt="" />
+              </Button>
             </Link>
+
+            <p className="font-[200] mt-8 text-sm">Join with us: </p>
+            <div className="flex gap-6 mt-4">
+              {SOCIALS.map((item, index) => (
+                <Link href={item.href} key={index} target="_blank">
+                  <img src={item.icon} alt="" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

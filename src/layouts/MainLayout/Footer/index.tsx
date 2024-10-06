@@ -11,7 +11,7 @@ export const Footer = () => {
 
   return (
     <motion.div
-      className="fixed z-50 left-1/2 bottom-5 -translate-x-1/2 flex items-center justify-between w-[95%] max-w-[918px] border-[0.5px] border-[rgba(255,255,255,0.5)] rounded-[5px] p-[10px_15px]"
+      className="hidden lg:flex fixed z-50 left-1/2 bottom-5 -translate-x-1/2 items-center justify-between w-[95%] max-w-[918px] border-[0.5px] border-[rgba(255,255,255,0.5)] rounded-[5px] p-[10px_15px]"
       animate={{
         opacity: currentSectionIndex > SectionIndexEnum.Hero ? 1 : 0,
       }}

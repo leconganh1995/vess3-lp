@@ -1,50 +1,37 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import cls from "classnames";
+import Image from "next/image";
 
 import { Dropdown } from "@/components/Dropdown";
 import { NAVS } from "./data";
-import { useGlobalState } from "@/store";
+import Link from "next/link";
+import { Button } from "@/components/Button";
 
 export const HeaderMobile = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const [already, setAlready] = useState(false);
-  const { isWindowLoaded } = useGlobalState();
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setAlready(true);
-    }, 4000);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
-
   return (
     <div
       className={cls(
-        "fixed w-full top-0 z-[1000] lg:h-[85px] flex items-center justify-center p-[15px] lg:p-[25px] backdrop-blur transition",
-        {
-          ["opacity-0"]: !already || !isWindowLoaded,
-        }
+        "fixed w-full top-0 z-[1000] h-[68px] flex items-center justify-center p-[15px] backdrop-blur transition border-b border-b-[rgba(255,255,255,0.15)]"
       )}
     >
       <div className="flex justify-between items-center w-content">
-        <Image
-          src="/images/white-logo.png"
-          width={92.34}
-          height={35.22}
-          alt="playton logo"
-          onClick={scrollToTop}
-        />
+        <Image src="/images/logo.png" width={128} height={32} alt="logo" />
 
-        <div className="flex items-center">
-          <Dropdown items={NAVS} />
+        <div className="flex items-center gap-1">
+          <Link href="/" target="_blank" passHref className="ml-3">
+            <Button spanClassName="items-center !text-[10px] py-0.5 rounded-[8px]">
+              Connect Wallet
+            </Button>
+          </Link>
+          <div className="flex items-center">
+            <Dropdown items={NAVS} />
+          </div>
         </div>
       </div>
     </div>

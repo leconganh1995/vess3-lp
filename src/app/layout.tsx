@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          href="https://fonts.cdnfonts.com/css/tt-octosquares-trl?styles=146089,146088,146079,146077"
+          href="https://fonts.cdnfonts.com/css/tt-octosquares-trl?styles=146083,146086,146088,146079,146077"
           rel="stylesheet"
         />
       </head>

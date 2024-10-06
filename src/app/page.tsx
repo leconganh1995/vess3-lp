@@ -41,7 +41,9 @@ export default function Home() {
     if (currentSectionIndex === SECTION_DATA.length - 1 && dir === "down")
       return;
 
-    const totalSectionSteps = SECTION_DATA[currentSectionIndex].totalStep || 1;
+    const totalSectionSteps = isLg
+      ? SECTION_DATA[currentSectionIndex].totalStep || 1
+      : SECTION_DATA[currentSectionIndex].mobileStep || 1;
     const nextStep = dir === "down" ? animationStep + 1 : animationStep - 1;
     const isNextOutOfStep = nextStep < 1 || nextStep > totalSectionSteps;
     const timeout = isNextOutOfStep || isLg ? 1500 : 1000;

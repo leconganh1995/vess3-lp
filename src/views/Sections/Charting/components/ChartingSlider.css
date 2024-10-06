@@ -1,0 +1,13 @@
+.slick-slide {
+  opacity: 0.8;
+  height: 100%;
+  transform: scale(0.9);
+  filter: blur(3px);
+  transition: 0.2s;
+}
+
+.slick-active {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}

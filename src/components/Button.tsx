@@ -31,7 +31,7 @@ export const Button = ({
           variant === "primary"
             ? "bg-[#4BF7E266] border border-[#FFFFFF26] shadow-[0px_0px_6px_3px_#FFFFFF40_inset] backdrop-blur"
             : "bg-transparent"
-        } text-sm text-white  justify-center rounded-[10px] py-2 px-5`}
+        } text-sm text-white  justify-center rounded-[10px] py-2 px-5 font-[200] whitespace-nowrap`}
       >
         {children}
       </span>

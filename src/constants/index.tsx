@@ -34,12 +34,14 @@ export const SECTION_DATA = [
     element: Governance,
     id: SectionEnums.Governance,
     totalStep: null,
+    mobileStep: 4,
   },
   {
     index: SectionIndexEnum.Tech,
     element: Tech,
     id: SectionEnums.Tech,
     totalStep: null,
+    mobileStep: 3,
   },
   {
     index: SectionIndexEnum.Charting,

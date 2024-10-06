@@ -73,9 +73,12 @@ export const Container = forwardRef(
         {...props}
       >
         <div
-          className={cls("absolute top-[98px] left-0 w-full bottom-0 py-6", {
-            [innerClassName]: true,
-          })}
+          className={cls(
+            "absolute top-[68px] lg:top-[98px] left-0 w-full bottom-0 py-3 lg:px-6",
+            {
+              [innerClassName]: true,
+            }
+          )}
         >
           {children}
         </div>
