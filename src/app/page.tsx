@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { SECTION_DATA } from "@/constants";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { useTouch, useWheel } from "@/hooks/useEvents";
 import { useScrollIntoSection } from "@/hooks/useScrollIntoSection";
 import { useSectionState } from "@/store";
+import { BlackHole } from "@/views/Sections/BlackHole";
+import { PointCloud } from "@/views/Sections/PointCloud";
 
 export default function Home() {
   useScrollIntoSection();
@@ -75,14 +77,14 @@ export default function Home() {
 
   return (
     <div className="max-w-screen h-screen overflow-hidden max-h-screen relative">
-      <motion.img
-        src="/images/blackhole.png"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
-        alt=""
-        animate={{
-          opacity: currentSectionIndex > 2 ? 0 : 1,
-        }}
-      />
+      <AnimatePresence>
+        {currentSectionIndex < 3 && (
+          <motion.div>
+            <BlackHole />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <PointCloud />
 
       {SECTION_DATA.slice(0, currentSectionIndex + 2).map((item, index) => (
         <item.element

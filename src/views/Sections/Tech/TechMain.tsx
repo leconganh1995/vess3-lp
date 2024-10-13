@@ -4,7 +4,7 @@ import { Card } from "@/components/Card";
 
 export const TechMain = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row justify-between w-full gap-28">
+    <div className="lg:fixed left-1/2 top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col-reverse lg:flex-row justify-between w-full max-w-content gap-28">
       <div className="relative flex lg:block items-center justify-center gap-4 right-4 lg:right-0">
         <div className="hidden lg:flex flex-col items-center gap-[6px] absolute right-[-90px] top-10">
           <img className="w-[15px]" src="/images/tech-vector.svg" />

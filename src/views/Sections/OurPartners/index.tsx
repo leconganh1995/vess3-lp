@@ -11,7 +11,7 @@ export const OurPartners = (props: ContainerProps) => {
   return (
     <Container
       ref={containerRef}
-      className="bg-[url(/images/our-partner-bg.webp)] bg-cover bg-no-repeat"
+      className="bg-[url(/images/our-partner-bg.webp)] bg-cover bg-no-repeat mix-blend-screen"
       {...props}
     >
       <div className="flex flex-col items-center mt-[30px] gap-3 lg:gap-6 max-w-content mx-auto h-full w-full relative">

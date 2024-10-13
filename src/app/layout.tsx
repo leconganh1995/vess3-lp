@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { MainLayout } from "@/layouts";
-import { poppins } from "@/fonts/poppins";
 import "./globals.css";
 
 export const metadata: Metadata = {

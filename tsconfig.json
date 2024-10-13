@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/views/Sections/BlackHole/camera/CameraDragControls.js", "src/views/Sections/BlackHole/graphics/render.js"  ],
   "exclude": [
     "node_modules"
   ]
