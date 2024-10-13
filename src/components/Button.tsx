@@ -22,10 +22,13 @@ export const Button = ({
           variant === "primary"
             ? `border border-solid border-[rgba(255,255,255,0.3)]`
             : ` border border-solid border-[rgba(255,255,255,0.3)]`
-        } text-white rounded-[12px] transition hover:brightness-75 p-[5px]`
+        } text-white rounded-[12px] transition hover:brightness-75 p-[5px] relative`
       }
       {...props}
     >
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[60%] bg-[rgba(255,255,255,0.3)]" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[2px] h-[60%] bg-[rgba(255,255,255,0.3)]" />
+
       <span
         className={`${spanClassName} flex w-full ${
           variant === "primary"
