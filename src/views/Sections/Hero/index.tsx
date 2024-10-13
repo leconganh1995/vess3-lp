@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRef } from "react";
 
-import { Button } from "@/components/Button";
 import { Container, ContainerProps } from "@/components/Container";
 import { TextGradient } from "@/components/TextGradient";
 import Link from "next/link";
@@ -52,8 +51,12 @@ export const Hero = (props: ContainerProps) => {
 
           <div className="flex flex-col lg:flex-row justify-between mt-7">
             <div className="flex flex-col lg:flex-row gap-2 lg:gap-10 items-center mt-6 lg:mt-0 lg:ml-28 order-2 lg:order-1">
-              <Button className="w-[181px] lg:w-fit">Connect Wallet</Button>
-              <Button className="w-[181px] lg:w-fit">Explore The Site</Button>
+              <button className="text-left pl-4 w-[179px] h-[40px] bg-[url(/images/btn-bg-1.svg)] bg-cover bg-no-repeat hover:brightness-90 transition">
+                Connect Wallet
+              </button>
+              <button className="text-center w-[179px] h-[40px] bg-[url(/images/btn-bg-2.svg)] bg-cover bg-no-repeat hover:brightness-90 transition">
+                Explore The Site
+              </button>
             </div>
 
             <p className="max-w-[297px] text-xs font-[200] text-center lg:text-left lg:text-sm order-1 lg:order-2 mx-auto lg:mx-[unset]">

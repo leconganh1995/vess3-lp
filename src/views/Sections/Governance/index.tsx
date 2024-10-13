@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
-import { Button } from "@/components/Button";
 import { Container, ContainerProps } from "@/components/Container";
 import { TextGradient } from "@/components/TextGradient";
-import { GOVERNANCE_DATA } from "./data";
-import { GovernanceItem } from "./components/GovernanceItem";
 import { useSectionState } from "@/store";
+import { GovernanceItem } from "./components/GovernanceItem";
+import { GOVERNANCE_DATA } from "./data";
 
 export const Governance = (props: ContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,7 +26,9 @@ export const Governance = (props: ContainerProps) => {
             The Vessel Index is designed to access diversified crypto portfolios
             with only One token: $VESSEL
           </p>
-          <Button className="hidden lg:block">LEARN MORE</Button>
+          <button className="text-left pl-4 w-[179px] h-[40px] bg-[url(/images/btn-bg-1.svg)] bg-cover bg-no-repeat hover:brightness-90 transition">
+            LEARN MORE
+          </button>
         </div>
 
         <div className="hidden lg:grid grid-cols-2 gap-10 w-[48.4375%]">
@@ -64,7 +65,9 @@ export const Governance = (props: ContainerProps) => {
             The Vessel Index is designed to access diversified crypto portfolios
             with only One token: $VESSEL
           </p>
-          <Button spanClassName="text-xs rounded-[8px]">LEARN MORE</Button>
+          <button className="text-left pl-4 w-[179px] h-[40px] bg-[url(/images/btn-bg-1.svg)] bg-cover bg-no-repeat hover:brightness-90 transition">
+            LEARN MORE
+          </button>
         </div>
       </div>
     </Container>
