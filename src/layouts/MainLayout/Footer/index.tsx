@@ -16,6 +16,16 @@ export const Footer = () => {
         opacity: currentSectionIndex > SectionIndexEnum.Hero ? 1 : 0,
       }}
     >
+      <img
+        src="/images/btn-vector-right.svg"
+        alt=""
+        className="absolute top-[-1px] right-[-1px]"
+      />
+      <img
+        src="/images/btn-vector-left.svg"
+        alt=""
+        className="absolute bottom-[-1px] left-[-1px]"
+      />
       <p className="text-[10px]">Privacy Policy and Terme</p>
       <div className="flex items-center gap-4">
         {SOCIALS.map((item, index) => (
