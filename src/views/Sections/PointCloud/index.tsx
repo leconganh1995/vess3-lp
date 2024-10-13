@@ -1,35 +1,14 @@
 /* eslint-disable react/display-name */
-import React, { useEffect, useRef, memo } from "react";
+import React, { useEffect, useRef, memo, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
 import { useSectionState } from "@/store";
-
-const particleCount = 5000;
-const positions = new Float32Array(particleCount * 3);
-
-// Create particle positions
-for (let i = 0; i < particleCount; i++) {
-  positions[i * 3] = Math.random() * 2000 - 1000; // x
-  positions[i * 3 + 1] = Math.random() * 2000 - 1000; // y
-  positions[i * 3 + 2] = Math.random() * 2000 - 1000; // z
-}
-
-const geometry = new THREE.BufferGeometry();
-geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-const sprite = new THREE.TextureLoader().load("/images/disc.png");
-sprite.colorSpace = THREE.SRGBColorSpace;
-
-const material = new THREE.PointsMaterial({
-  map: sprite,
-  transparent: true,
-  size: 2,
-  sizeAttenuation: true,
-  color: 0xffffff, // Set particle color
-});
+import { getPointStarsData } from "@/utils/3d";
 
 const ParticleSystem = memo(() => {
   const { currentSectionIndex } = useSectionState();
+  const { geometry, material } = useMemo(() => {
+    return getPointStarsData();
+  }, []);
 
   const mouse = useRef({
     y: 0,
